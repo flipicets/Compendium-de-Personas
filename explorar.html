@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Busque, filtre e favorite as Personas do compêndio.">
+  <title>Explorar - Compendium de Personas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 90,50 50,95 10,50' fill='%234fa8ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-pagina="explorar">
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <a class="marca" href="index.html">Compendium de Personas</a>
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="explorar.html" aria-current="page">Explorar</a></li>
+        <li><a href="ferramentas.html">Ferramentas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="cabecalho-acoes">
+      <button class="botao botao-modo" id="botaoIdioma" type="button" aria-pressed="true" title="Alternar entre descrições em português e em inglês">Descrições: PT</button>
+      <button class="botao botao-modo" id="botaoModo" type="button" aria-pressed="false">Dark Hour</button>
+    </div>
+  </header>
+
+  <main class="conteudo" id="principal">
+    <section class="painel" aria-labelledby="titulo-explorar">
+      <h1 id="titulo-explorar">Explorar o compêndio</h1>
+      <p class="frase">Todas as Personas registradas na Velvet Room.</p>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-filtros">
+      <h2 id="titulo-filtros">Busca e filtros</h2>
+      <form class="filtros" id="formFiltros" role="search">
+        <p class="campo">
+          <label for="campoBusca">Buscar por nome</label>
+          <input type="search" id="campoBusca" placeholder="Ex.: Arsène, Orpheus... (tecle / para focar)" autocomplete="off">
+        </p>
+        <p class="campo">
+          <label for="filtroArcano">Arcano</label>
+          <select id="filtroArcano"><option value="">Todos</option></select>
+        </p>
+        <p class="campo">
+          <label for="filtroFraqueza">Fraco contra</label>
+          <select id="filtroFraqueza">
+            <option value="">Qualquer</option>
+            <option value="Slash">Corte</option>
+            <option value="Strike">Impacto</option>
+            <option value="Pierce">Perfuração</option>
+            <option value="Fire">Fogo</option>
+            <option value="Ice">Gelo</option>
+            <option value="Electric">Elétrico</option>
+            <option value="Wind">Vento</option>
+            <option value="Light">Luz</option>
+            <option value="Dark">Trevas</option>
+          </select>
+        </p>
+        <p class="campo">
+          <label for="ordenacao">Ordenar por</label>
+          <select id="ordenacao">
+            <option value="id">Ordem do compêndio</option>
+            <option value="nome">Nome (A–Z)</option>
+            <option value="nivel-asc">Nível (menor)</option>
+            <option value="nivel-desc">Nível (maior)</option>
+            <option value="status-desc">Status total (maior)</option>
+          </select>
+        </p>
+        <p class="campo campo-marcar">
+          <input type="checkbox" id="somenteFavoritos">
+          <label for="somenteFavoritos">Favoritos</label>
+        </p>
+        <p class="campo">
+          <button class="botao botao-secundario" id="botaoLimpar" type="button">Limpar filtros</button>
+        </p>
+      </form>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-personas">
+      <h2 id="titulo-personas">Personas</h2>
+      <p id="estadoCarregamento" class="estado" role="status">Carregando...</p>
+      <p class="centralizado" id="areaTentar" hidden>
+        <button class="botao" id="botaoTentar" type="button">Tentar novamente</button>
+      </p>
+      <p class="contador" id="contador" aria-live="polite"></p>
+      <div class="grade" id="listaCartoes"></div>
+      <p class="centralizado">
+        <button class="botao botao-secundario" id="botaoMais" type="button" hidden>Carregar mais</button>
+      </p>
+    </section>
+
+    <dialog id="janelaDetalhes" aria-labelledby="detalheNome">
+      <div id="conteudoDetalhes"></div>
+      <p class="centralizado"><button class="botao" id="fecharDetalhes" type="button">Fechar</button></p>
+    </dialog>
+  </main>
+
+  <footer class="rodape">
+    <p>A página explorar sendo honesto é minha favorita eu acho que ficou muito massa</p>
+    <p>Fui eu (Fellipe) quem digitou isso</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

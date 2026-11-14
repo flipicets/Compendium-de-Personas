@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora e estatísticas das Personas favoritas.">
+  <title>Ferramentas - Compendium de Personas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 90,50 50,95 10,50' fill='%234fa8ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-pagina="ferramentas">
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <a class="marca" href="index.html">Compendium de Personas</a>
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="ferramentas.html" aria-current="page">Ferramentas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="cabecalho-acoes">
+      <button class="botao botao-modo" id="botaoIdioma" type="button" aria-pressed="true" title="Alternar entre descrições em português e em inglês">Descrições: PT</button>
+      <button class="botao botao-modo" id="botaoModo" type="button" aria-pressed="false">Dark Hour</button>
+    </div>
+  </header>
+
+  <main class="conteudo" id="principal">
+    <section class="painel" aria-labelledby="titulo-ferramentas">
+      <h1 id="titulo-ferramentas">Ferramentas</h1>
+      <p class="frase">Números também fazem parte da fusão.</p>
+      <p id="estadoFerramentas" class="estado" role="status">Carregando...</p>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-calc">
+      <h2 id="titulo-calc">Calculadora de status</h2>
+      <p>Escolha duas Personas e um atributo para preencher os valores, ou digite os números que quiser. Depois escolha a operação.</p>
+      <form id="formCalculadora" novalidate>
+        <div class="calculadora">
+          <p class="campo">
+            <label for="personaA">Persona A</label>
+            <select id="personaA"><option value="">Digitar manualmente</option></select>
+          </p>
+          <p class="campo">
+            <label for="personaB">Persona B</label>
+            <select id="personaB"><option value="">Digitar manualmente</option></select>
+          </p>
+          <p class="campo">
+            <label for="atributoCalc">Atributo usado</label>
+            <select id="atributoCalc">
+              <option value="level">Nível</option>
+              <option value="strength">Força</option>
+              <option value="magic">Magia</option>
+              <option value="endurance">Vitalidade</option>
+              <option value="agility">Agilidade</option>
+              <option value="luck">Sorte</option>
+            </select>
+          </p>
+          <p class="campo"></p>
+          <p class="campo">
+            <label for="numeroA">Valor A</label>
+            <input type="number" id="numeroA" step="any" placeholder="0">
+          </p>
+          <p class="campo">
+            <label for="numeroB">Valor B</label>
+            <input type="number" id="numeroB" step="any" placeholder="0">
+          </p>
+        </div>
+        <div class="operacoes">
+          <button class="botao" type="button" data-operacao="somar">Somar +</button>
+          <button class="botao" type="button" data-operacao="subtrair">Subtrair −</button>
+          <button class="botao" type="button" data-operacao="multiplicar">Multiplicar ×</button>
+          <button class="botao" type="button" data-operacao="dividir">Dividir ÷</button>
+        </div>
+        <output class="resultado" id="resultado" for="numeroA numeroB" aria-live="polite">O resultado vai aparecer aqui</output>
+      </form>
+      <h3>Histórico</h3>
+      <ol class="historico" id="historico"></ol>
+      <button class="botao botao-secundario" id="limparHistorico" type="button">Limpar histórico</button>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-favoritos">
+      <h2 id="titulo-favoritos">Medias dos seus personas favoritos</h2>
+      <p id="semFavoritos" class="estado" hidden>Você ainda não favoritou nenhum persona. Va em <a href="explorar.html">Explorar</a> e marque alguns como favorito!!</p>
+      <div id="areaFavoritos">
+        <p class="campo">
+          <label for="nivelMinimo">Considerar só favoritos com nível a partir de</label>
+          <input type="number" id="nivelMinimo" min="1" max="99" value="1">
+        </p>
+        <div class="tabela-rolavel">
+          <table>
+            <caption>Média dos atributos (favoritos que passam no filtro)</caption>
+            <thead><tr><th scope="col">Atributo</th><th scope="col">Média</th></tr></thead>
+            <tbody id="tabelaMedias"></tbody>
+          </table>
+        </div>
+        <h3>Favoritos considerados</h3>
+        <ul id="listaFavoritosFiltrados"></ul>
+      </div>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-geral">
+      <h2 id="titulo-geral">Estatísticas gerais</h2>
+      <p id="resumoGeral"></p>
+      <h3>Personas por arcano</h3>
+      <ul class="barras-arcano" id="barrasArcano"></ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>A gente teve que inventar um pouco de moda pra colocar as coisas de calculadora e tal</p>
+    <p>Mas eu acho... particularmente... que ta bom</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

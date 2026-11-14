@@ -1,0 +1,121 @@
+<!-- Oiee, é o Fellipe, então profe, o html foi genuinamente muita parte inteiramente feito tudo por nós do grupo
+ mas eu tive algumas ideias como o relógio (tentei fazer parecido com um relógio(não parece)) que eu não fazia IDEIA
+ de como fazia mas eu queria colocar ali porque faz parte de uma estética importante do joguinho que a gente se baseou
+ então essas coisas a gente pediu ajuda pro... pro dito... pro cujo, mas eu pelo menos parei pra entender o que estava acontecendo!!!
+ É isso, obrigado profe! -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compêndio das Personas de Persona 3 Reload na estética da Velvet Room.">
+  <title>Início - Compendium de Personas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 90,50 50,95 10,50' fill='%234fa8ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-pagina="inicio">
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <a class="marca" href="index.html">Compendium de Personas</a>
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="ferramentas.html">Ferramentas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="cabecalho-acoes">
+      <button class="botao botao-modo" id="botaoIdioma" type="button" aria-pressed="true" title="Alternar entre descrições em português e em inglês">Descrições: PT</button>
+      <button class="botao botao-modo" id="botaoModo" type="button" aria-pressed="false">Dark Hour</button>
+    </div>
+  </header>
+
+  <main class="conteudo" id="principal">
+    <section class="painel heroi" aria-labelledby="titulo-heroi">
+      <div class="heroi-texto">
+        <h1 id="titulo-heroi">Compendium de Personas >:3</h1>
+        <p class="frase">Bem-vindos a Velvet Room. I am thou, thou art I</p>
+        <p>Um compêndio de todas as Personas <strong>(de Persona 3 Reload)</strong>: arcanos, níveis, status base e afinidades elementais. Da pra buscar, filtrar e ver a lore deles :3</p>
+        <p><a class="botao" href="explorar.html">Abrir o compêndio</a></p>
+      </div>
+      <div class="heroi-arte">
+        <svg class="relogio" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <g stroke="currentColor" stroke-width="3">
+            <line x1="100" y1="6" x2="100" y2="22"/><line x1="194" y1="100" x2="178" y2="100"/>
+            <line x1="100" y1="194" x2="100" y2="178"/><line x1="6" y1="100" x2="22" y2="100"/>
+            <line x1="147" y1="18.7" x2="139" y2="32.6"/><line x1="181.3" y1="53" x2="167.4" y2="61"/>
+            <line x1="181.3" y1="147" x2="167.4" y2="139"/><line x1="147" y1="181.3" x2="139" y2="167.4"/>
+            <line x1="53" y1="181.3" x2="61" y2="167.4"/><line x1="18.7" y1="147" x2="32.6" y2="139"/>
+            <line x1="18.7" y1="53" x2="32.6" y2="61"/><line x1="53" y1="18.7" x2="61" y2="32.6"/>
+          </g>
+          <polygon points="100,52 140,100 100,148 60,100" fill="none" stroke="#e6c878" stroke-width="2"/>
+          <line x1="100" y1="100" x2="100" y2="58" stroke="currentColor" stroke-width="3"/>
+          <line x1="100" y1="100" x2="128" y2="112" stroke="currentColor" stroke-width="2"/>
+          <circle cx="100" cy="100" r="4" fill="#e6c878"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="dividido">
+      <section class="painel" aria-labelledby="titulo-persona-dia">
+        <h2 id="titulo-persona-dia">Persona do dia (Atualiza todo dia não ironicamente)</h2>
+        <p id="estadoInicio" class="estado" role="status">Carregando...</p>
+        <article id="personaDoDia" class="cartao" hidden></article>
+      </section>
+
+      <section class="painel" aria-labelledby="titulo-numeros">
+        <h2 id="titulo-numeros">O que temos no compêndio atualmente: </h2>
+        <dl class="numeros" id="numeros">
+          <dt>Personas</dt><dd>-</dd>
+          <dt>Arcanos</dt><dd>-</dd>
+          <dt>Nível máximo</dt><dd>-</dd>
+          <dt>Vindas de DLC</dt><dd>-</dd>
+        </dl>
+      </section>
+    </div>
+
+    <section class="painel" aria-labelledby="titulo-arcanos">
+      <h2 id="titulo-arcanos">Navegue baseado nos arcanos!</h2>
+      <p>Cada Persona pertence a um arcano do Tarô. Escolha um para filtrar aqueles do Tarô específico!!!</p>
+      <ul class="lista-etiquetas" id="listaArcanos"></ul>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-sobre">
+      <h2 id="titulo-sobre">Sobre o projeto</h2>
+      <p>Este site é o projeto final para o RA 3. Ele busca os dados de um arquivo público do repositório <em>Persona Compendium</em> usando <code>fetch</code>, guarda os favoritos no <code>localStorage</code> e envia o formulário de contato com <code>POST</code>.</p>
+      <p>As páginas que fizemos foram as de: <strong>Explorar</strong> (cartões com busca, filtros e favoritos), <strong>Ferramentas</strong> (calculadora e estatísticas) e <strong>Contato</strong> (formulário).</p>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-grupo">
+      <h2 id="titulo-grupo">O grupo</h2>
+      <div class="grade-equipe">
+        <article class="cartao"><h3>Fellipe</h3><p>Meu persona favorito é o 5!!</p></article>
+        <article class="cartao"><h3>Galê</h3><p>Eu não sei qual o Galê mais gosta...</p></article>
+        <article class="cartao"><h3>Rafael</h3><p>Eu prometi emprestar o jogo pro Rafa e nunca fiz isso</p></article>
+        <article class="cartao"><h3>Adrian</h3><p>É o Adrian. Muito massa.</p></article>
+      </div>
+    </section>
+
+    <aside class="painel">
+      <h2>Aviso</h2>
+      <p>Persona e Megami Tensei pertencem à Atlus Co., Ltd. As imagens nós retiramos diretamente da Megami Tensei Wiki.</p>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <p>Trabalho de Desenvolvimento Web - RA 3</p>
+    <p>Retiramos os dados de: <a href="https://github.com/luyluish/persona-compendium">Persona Compendium (luyluish)</a> e Megaten Database.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

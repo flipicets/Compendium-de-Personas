@@ -89,7 +89,9 @@ function listarFontesDaImagem(persona) {
 ```
 
 - **Solução aplicada:** download das imagens para `img/` (scripts `baixar-imagens.ps1` e `baixar-imagens-navegador.js`) e `IMAGENS_LOCAIS = true`.
-- **Print:** ![erro 1](image.png)
+- **Print:** 
+- <img width="1405" height="696" alt="Erro 1" src="https://github.com/user-attachments/assets/9b90e3f9-fb02-4f2a-b564-1f71c47fb070" />
+
 
 ---
 
@@ -122,8 +124,9 @@ function listarFontesDaImagem(persona) {
 
 - **Solução aplicada:** abrir o projeto pelo **Live Server** (`http://127.0.0.1:5500`) em vez de `file:///`. No GitHub Pages o endereço é `https://`, então também funciona.
 - **Print:** 
-- ![erro 2A](image-1.png)
-- ![erro 2B](image-2.png)
+- <img width="1087" height="81" alt="Erro 2A" src="https://github.com/user-attachments/assets/caed2d9b-7b4a-4b6a-af49-701b0a177673" />
+- <img width="1568" height="775" alt="Erro 2B" src="https://github.com/user-attachments/assets/f02c640b-f3b0-4d1d-905c-9e097f6db11c" />
+
 
 ---
 
@@ -155,7 +158,8 @@ function atualizarBotaoIdioma(botao) {
 ```
 
 - **Print:** 
-- ![erro 3](image-3.png)
+- <img width="1919" height="946" alt="Erro 3" src="https://github.com/user-attachments/assets/ee47a34e-e2a1-4dd0-9b57-cf3ffb6013f6" />
+
 
 ---
 

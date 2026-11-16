@@ -163,7 +163,7 @@ function atualizarBotaoIdioma(botao) {
   botao.setAttribute("aria-pressed", String(emPortugues));
   botao.title = "Alternar entre descrições em português e em inglês";
   // Só avisa depois de tentar carregar a tradução
-  if (traducaoTentada && !traducaoDisponivel) {
+  if (emPortugues && !traducaoDisponivel) {
     botao.title = "A tradução não carregou: confira se data/descricoes-pt.json está no projeto";
     botao.classList.add("sem-traducao");
   }
